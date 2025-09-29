@@ -168,8 +168,7 @@ I think the reduce operation on sequence in checking if an element in a list is 
 - **3b.**
 
 
-
-Let the input length be $n$ and define the state sequence by $s_0 = 0$ and $s_i = \text{parens\_update}(s_{i-1}, a_i)$ for $i=1,\dots,n$, where each call to `parens_update` performs $O(1)$ work.
+Let the input length be $n$ and define the state sequence by $s_0 = 0$ and $s_i = \text{parens\_update}(s_{i-1}, a_i)$ for $i=1,\dots,n$, where each call to parens_update performs $O(1)$ work.
 
 ### Work
 We have the recurrence
