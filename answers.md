@@ -93,6 +93,46 @@ These bounds match the classic results for tree reductions (Θ(m) work, Θ(log m
 
 - **2b.**
 
+## SPARC #1 — Concatenate then Deduplicate (no local pass)
+
+**Idea.**  
+Concatenate all lists \(A_0, A_1, \dots, A_{m-1}\) into one long sequence \(E\) (length \(N = m \cdot n\)).  
+Then scan left to right; for each element \(x\) in \(E\), keep it in the output list \(S\) **iff** it does **not** already appear in the prefix of \(S\).  
+We implement membership check `rsearch(S, x)` by a tree-based reduction:  
+\[
+\text{rsearch}(S, x) = \mathrm{REDUCE\_OR}\bigl(\,\mathrm{MAP}(\lambda y.\; y = x,\; S)\bigr),
+\]  
+which has **span** \(O(\log |S|)\) because the reduction is associative.
+
+---
+
+### Spec / Pseudocode (SPARC style)
+
+```text
+PROC multi_dedup_concat(A : ARRAY[m] of LIST[α]) : LIST[α]
+VAR
+  E : LIST[α];     // concatenation of all A[i]
+  S : LIST[α];     // output, preserving first-appearance in A0..A_{m−1}
+BEGIN
+  E ← []  
+  FOR i ← 0 TO m − 1 DO
+    E ← E ++ A[i]
+  OD
+
+  S ← []
+  FOR x IN E DO
+    IF NOT rsearch(S, x) THEN
+      APPEND(S, x)
+    FI
+  OD
+
+  RETURN S
+END
+
+// Membership via tree-reduction of OR
+FUNC rsearch(S : LIST[α], x : α) : BOOL =
+  REDUCE_OR( MAP(λ y. (y == x), S) )
+// REDUCE_OR is implemented as a binary-tree associative OR reduction → span O(log |S|)
 
 
 
