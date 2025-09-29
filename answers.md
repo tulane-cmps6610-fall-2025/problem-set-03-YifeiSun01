@@ -134,7 +134,7 @@ FUNC rsearch(S : LIST[α], x : α) : BOOL =
   REDUCE_OR( MAP(λ y. (y == x), S) )
 // REDUCE_OR is implemented as a binary-tree associative OR reduction → span O(log |S|)
 
-
+```
 
 
 
