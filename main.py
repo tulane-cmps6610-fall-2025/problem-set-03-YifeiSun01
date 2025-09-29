@@ -62,6 +62,16 @@ def ureduce(f, id_, a):
                  reduce(f, id_, a[len(a)//3:]))
 
 
+def dedup(A):
+    """Return distinct elements of A preserving first-appearance order,
+    using rsearch (reduce-OR membership)."""
+    S = []
+    for x in A:            
+        if not rsearch(S, x):  
+            S.append(x)  
+    return S
+
+
 
 
 ### PART 3: PARENTHESES MATCHING
