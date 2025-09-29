@@ -45,6 +45,7 @@ Thus, with `ureduce`, the **work remains $\(\Theta(n)\)$**, and the **span is st
 
 - **2a.**
 
+```python
 procedure DEDUP_SEQ_BY_REDUCE(A)  // Input: sequence A of length n; Output: distinct elements in first-appearance order
     S := EMPTY_SEQUENCE()         // seen list in first-appearance order
     for k from 1 to n do          // must iterate sequentially to preserve "first occurrence"
@@ -60,7 +61,7 @@ procedure DEDUP_SEQ_BY_REDUCE(A)  // Input: sequence A of length n; Output: dist
     end for
     return S
 end procedure
-
+```
 
 I used the reduce method in the previous question. In previous question we implemented a method that checks if an element in an unordered list or not. We can do this question by iterate over every element in the list we are given and keep a new dedupcilated list and check if every lement is in that deduplicated list or not. If it is not in that list we can append it to that list.
 
