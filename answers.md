@@ -57,7 +57,7 @@ Per-step costs. At step k, building B does Θ(k) work, and reducing B does Θ(k)
 $$W_k = \Theta(k),\quad S_k = \Theta(\log k).$$
 
 Total work. Summing over k gives
-$$W(n) = \sum_{k=1}^{n} W_k = \sum_{k=1}^{n} \Theta(k) = \Theta\!\left(\sum_{k=1}^{n} k\right) = \Theta(n^2).$$
+$$W(n) = \sum_{k=1}^{n} W_k = \sum_{k=1}^{n} \Theta(k) = \Theta\left(\sum_{k=1}^{n} k\right) = \Theta(n^2).$$
 
 Total span. The outer loop is sequential (each decision depends on all prior steps), so spans add:
 $$S(n) = \sum_{k=1}^{n} S_k = \sum_{k=1}^{n} \Theta(\log k) = \Theta\!\big(\log(n!)\big) = \Theta(n \log n).$$
