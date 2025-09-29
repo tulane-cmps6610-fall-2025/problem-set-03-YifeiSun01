@@ -151,6 +151,9 @@ $$T_{\infty} = \sum_{k=1}^{N} \Theta(\log k) = \Theta\big(N \log N\big).$$
 
 The concatenate-then-deduplicate algorithm using `rsearch` has **work** $\Theta(N^2)$ and **span** $\Theta(N \log N)$.
 
+Using this method, the span and work are basically the same as 2a), except the N here is m times n as 2a).
+
+Another way of doing this may be first do local deduplication for every list using rsearch, and then concat the deduplicated list to a longer list and deduplicate this list. We introduce new work in local deduplication but also reduce work in the final deduplication of concatenated list.
 
 
 - **2c.**
