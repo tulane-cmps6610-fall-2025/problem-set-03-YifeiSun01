@@ -93,9 +93,7 @@ def parens_match_iterative(mylist):
     >>>parens_match_iterative(['('])
     False
     """
-    ### TODO
     return iterate(parens_update, 0, mylist) == 0
-    ###
 
 
 def parens_update(current_output, next_input):
@@ -110,8 +108,17 @@ def parens_update(current_output, next_input):
     Returns:
       the updated value of `current_output`
     """
-    ###TODO
-    ###
+    if current_output == -1:
+        return -1
+
+    if next_input == "(":
+        return current_output + 1
+    elif next_input == ")":
+        if current_output == 0:
+            return -1
+        return current_output - 1
+    else:
+        return current_output
 
 
 def test_parens_match_iterative():
