@@ -158,9 +158,7 @@ Another way of doing this may be first do local deduplication for every list usi
 
 - **2c.**
 
-
-
-
+I think the reduce operation on sequence in checking if an element in a list is useful here from the rsearch we did before. It basically utilizes the associativity of binary operation True OR False equals True. One True in the sequence results in True as the result. So we can use divide and conquer here to do binary division and aggregation to use more processors to do the job instead of doing this sequentially and not concurrently. But I think in terms of checking duplicated elements, it is difficult to parallelize. Maybe here is some hash method that can do this more quickly. The thing about removing duplicated is that if we divide a longer sequence into smaller sequences and deduplicate every one of the smaller sequences, we still have to deduplicated their aggregated deduplicated lists again. Two lists are both deduplicated do not mean their concatenated list is deduplicated.
 
 
 
