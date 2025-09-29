@@ -28,13 +28,13 @@ We analyze the work \(W(n)\) and span \(S(n)\) of the parallel algorithm using `
 
 **Work recurrence.**  
 Each level does constant extra work per node, and we make two recursive calls covering the entire input.  Hence  
-$$W(n) = W\bigl(\lfloor n/3\rfloor\bigr)\;+\;W\bigl(\lceil 2n/3\rceil\bigr)\;+\;O(1).$$  
+$$W(n) = W\bigl(\lfloor n/3\rfloor\bigr)+W\bigl(\lceil 2n/3\rceil\bigr)+O(1).$$  
 By induction (or by the recursion-tree method), this solves to  
 $$W(n) = \Theta(n).$$  
 
 **Span recurrence.**  
 Since the two recursive calls are executed in parallel, the span satisfies  
-$$S(n) = \max\bigl(S(\lfloor n/3\rfloor),\, S(\lceil 2n/3\rceil)\bigr)\;+\;O(1).$$  
+$$S(n) = \max\bigl(S(\lfloor n/3\rfloor), S(\lceil 2n/3\rceil)\bigr)+O(1).$$  
 Because \(2n/3\) > \(n/3\), the critical path comes from the larger branch, so  
 $$S(n) = S(\lceil 2n/3\rceil) + O(1).$$  
 That recurrence solves to  
