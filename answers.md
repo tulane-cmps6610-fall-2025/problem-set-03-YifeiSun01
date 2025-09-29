@@ -17,7 +17,8 @@ Because we are checking by index of every element in the list to see if it is th
 
 - **1d.**
 
-
+Work (T₁): Θ(n) — each element is compared once and participates in O(1) combines overall; parallel reduction is work-efficient. 
+Span (T∞): Θ(log n) — the reduction combines results up a balanced tree of depth ~log n (comparisons can be done in parallel, then the OR tree dominates).
 
 
 
