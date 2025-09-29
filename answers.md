@@ -24,7 +24,7 @@ Span (T∞): Θ(log n) — the reduction combines results up a balanced tree of 
 
 - **1e.**
 
-We analyze the work $\(W(n)\)$ and span $\(S(n)\)$ of the parallel algorithm using `ureduce`, which splits into subproblems of sizes \(\lfloor n/3\rfloor\) and \(\lceil 2n/3\rceil\) and then applies a constant-time combine \(f\).  
+We analyze the work $\(W(n)\)$ and span $\(S(n)\)$ of the parallel algorithm using `ureduce`, which splits into subproblems of sizes $\(\lfloor n/3\rfloor\)$ and $\(\lceil 2n/3\rceil\)$ and then applies a constant-time combine $\(f\)$.  
 
 **Work recurrence.**  
 Each level does constant extra work per node, and we make two recursive calls covering the entire input.  Hence  
