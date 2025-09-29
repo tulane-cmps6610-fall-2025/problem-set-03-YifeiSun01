@@ -140,12 +140,12 @@ Let $N = m \cdot n$ be the total number of elements after concatenation.
 ### Work $T_1$
 
 In the $k$-th outer iteration, `rsearch(S, x)` compares $x$ against each element of the current set $S$ with $|S| = k-1$. This is $\Theta(k)$ equality tests. Summing over all iterations,
-$$T_1 \;=\; \sum_{k=1}^{N} \Theta(k) \;=\; \Theta\!\big(N^2\big).$$
+$$T_1 = \sum_{k=1}^{N} \Theta(k) = \Theta\big(N^2\big).$$
 
 ### Span $T_{\infty}$
 
 The outer loop is inherently sequential, but each membership test is implemented as a **balanced OR-reduction** over $|S|$ predicates, which has depth $\Theta(\log k)$ at the $k$-th step. Therefore,
-$$T_{\infty} \;=\; \sum_{k=1}^{N} \Theta(\log k) \;=\; \Theta\!\big(N \log N\big).$$
+$$T_{\infty} = \sum_{k=1}^{N} \Theta(\log k) = \Theta\big(N \log N\big).$$
 
 ### Conclusion
 
