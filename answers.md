@@ -167,7 +167,26 @@ I think the reduce operation on sequence in checking if an element in a list is 
 
 - **3b.**
 
+## Work / Span Proof for `parens_match_iterative` with `iterate`
 
+Let the input length be $n$ and define the state sequence by $s_0 = 0$ and $s_i = \text{parens\_update}(s_{i-1}, a_i)$ for $i=1,\dots,n$, where each call to `parens_update` performs $O(1)$ work.
+
+### Work
+We have the recurrence
+$$T_1(0)=\Theta(1),\qquad T_1(n)=T_1(n-1)+\Theta(1).$$
+By unrolling or induction,
+$$T_1(n)=\Theta(n).$$
+A matching lower bound $T_1(n)=\Omega(n)$ holds because any correct algorithm must read all $n$ inputs, hence
+$$T_1(n)=\Theta(n).$$
+
+### Span
+Each state $s_i$ depends on $s_{i-1}$, forming a dependency chain of length $n$. Each step contributes $\Theta(1)$ depth, so
+$$T_{\infty}(0)=\Theta(1),\qquad T_{\infty}(n)=T_{\infty}(n-1)+\Theta(1),$$
+which solves to
+$$T_{\infty}(n)=\Theta(n).$$
+
+### Conclusion
+The iterative parenthesis matcher using `iterate` has **work** $\Theta(n)$ and **span** $\Theta(n)$.
 
 
 - **3d.**
