@@ -24,7 +24,23 @@ Span (T∞): Θ(log n) — the reduction combines results up a balanced tree of 
 
 - **1e.**
 
+We analyze the work \(W(n)\) and span \(S(n)\) of the parallel algorithm using `ureduce`, which splits into subproblems of sizes \(\lfloor n/3\rfloor\) and \(\lceil 2n/3\rceil\) and then applies a constant-time combine \(f\).  
 
+**Work recurrence.**  
+Each level does constant extra work per node, and we make two recursive calls covering the entire input.  Hence  
+$$W(n) = W\bigl(\lfloor n/3\rfloor\bigr)\;+\;W\bigl(\lceil 2n/3\rceil\bigr)\;+\;O(1).$$  
+By induction (or by the recursion-tree method), this solves to  
+$$W(n) = \Theta(n).$$  
+
+**Span recurrence.**  
+Since the two recursive calls are executed in parallel, the span satisfies  
+$$S(n) = \max\bigl(S(\lfloor n/3\rfloor),\, S(\lceil 2n/3\rceil)\bigr)\;+\;O(1).$$  
+Because \(2n/3\) > \(n/3\), the critical path comes from the larger branch, so  
+$$S(n) = S(\lceil 2n/3\rceil) + O(1).$$  
+That recurrence solves to  
+$$S(n) = \Theta(\log_{3/2} n) = \Theta(\log n).$$  
+
+Thus, with `ureduce`, the **work remains \(\Theta(n)\)**, and the **span is still \(\Theta(\log n)\)** (though with a larger constant factor in the log) compared to a fully balanced binary split.
 
 
 
