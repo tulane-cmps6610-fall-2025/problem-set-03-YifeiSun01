@@ -45,6 +45,8 @@ Thus, with `ureduce`, the **work remains $\(\Theta(n)\)$**, and the **span is st
 
 - **2a.**
 
+I used the reduce method in the previous question. In previous question we implemented a method that checks if an element in an unordered list or not. We can do this question by iterate over every element in the list we are given and keep a new dedupcilated list and check if every lement is in that deduplicated list or not. If it is not in that list we can append it to that list.
+
 Work–Span Proof for DEDUP_SEQ_BY_REDUCE
 
 Setup. At step k (1 ≤ k ≤ n), the seen-list S has size k−1. The algorithm computes B = map(y -> (y == x), S) and then performs a parallel tree reduce with OR and identity False to obtain found.
