@@ -11,7 +11,7 @@ Place all written answers from `problemset-03.md` here for easier grading.
 
 - **1b.**
 
-Because we are checking by index of every element in the list to see if it is the element we are looking or not, the work and span are both $O(n)$. This is calculated when only counting the comparison operation we are doing. 
+Because we are checking by index of every element in the list to see if it is the element we are looking or not, the work and span are both $O(n)$. 
 
 
 
