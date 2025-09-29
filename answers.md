@@ -43,6 +43,33 @@ $$S(n) = \Theta(\log_{3/2} n) = \Theta(\log n).$$
 Thus, with `ureduce`, the **work remains $\(\Theta(n)\)$**, and the **span is still $\(\Theta(\log n)\)$** (though with a larger constant factor in the log) compared to a fully balanced binary split.
 
 
+- **2a.**
+
+
+
+
+
+
+
+
+- **2b.**
+
+
+
+
+
+
+
+- **2c.**
+
+
+
+
+
+
+
+
+
 
 - **3b.**
 
