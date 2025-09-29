@@ -9,8 +9,17 @@ import math
 
 # search an unordered list L for a key x using iterate
 def isearch(L, x):
-    ###TODO
-    ###
+    sum_1 = 0
+    def f(x,y):
+        nonlocal sum_1
+        if x == y:
+            sum_1 += 1
+        return x
+    x = iterate(f, x, L)
+    if sum_1 == 0:
+        return False
+    else:
+        return True
 
 def test_isearch():
     assert isearch([1, 3, 5, 4, 2, 9, 7], 2) == (2 in [1, 3, 5, 4, 2, 9, 7])
