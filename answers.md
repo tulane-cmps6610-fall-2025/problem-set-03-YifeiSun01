@@ -59,11 +59,11 @@ $$W(n) = \sum_{k=1}^{n} W_k = \sum_{k=1}^{n} \Theta(k) = \Theta\!\left(\sum_{k=1
 
 Total span. The outer loop is sequential (each decision depends on all prior steps), so spans add:
 $$S(n) = \sum_{k=1}^{n} S_k = \sum_{k=1}^{n} \Theta(\log k) = \Theta\!\big(\log(n!)\big) = \Theta(n \log n).$$
-The equality $\sum_{k=1}^{n} \log k = \log(n!)$ is immediate, and Stirling-type bounds give $\log(n!) = n \log n - n + O(\log n)$, hence $\log(n!) = \Theta(n \log n)$. :contentReference[oaicite:1]{index=1}
+The equality $\sum_{k=1}^{n} \log k = \log(n!)$ is immediate, and Stirling-type bounds give $\log(n!) = n \log n - n + O(\log n)$, hence $\log(n!) = \Theta(n \log n)$. 
 
 Conclusion. Under the standard SPARC-style cost model for map/reduce, DEDUP_SEQ_BY_REDUCE has
 $$W(n) = \Theta(n^2),\quad S(n) = \Theta(n \log n).$$
-These bounds match the classic results for tree reductions (Θ(m) work, Θ(log m) span) applied to a sequential sequence of membership checks. :contentReference[oaicite:2]{index=2}
+These bounds match the classic results for tree reductions (Θ(m) work, Θ(log m) span) applied to a sequential sequence of membership checks. 
 
 
 
