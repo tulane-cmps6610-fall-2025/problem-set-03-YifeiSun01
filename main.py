@@ -8,6 +8,13 @@ import math
 ### PART 1: SEARCHING UNSORTED LISTS
 
 # search an unordered list L for a key x using iterate
+
+def isearch(L, x):
+    def f(found, y):
+        return found or (y == x)
+    return iterate(f, False, L)
+
+"""
 def isearch(L, x):
     sum_1 = 0
     def f(x,y):
@@ -20,6 +27,7 @@ def isearch(L, x):
         return False
     else:
         return True
+"""
 
 def test_isearch():
     assert isearch([1, 3, 5, 4, 2, 9, 7], 2) == (2 in [1, 3, 5, 4, 2, 9, 7])
