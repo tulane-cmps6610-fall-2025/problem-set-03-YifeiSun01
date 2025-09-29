@@ -96,7 +96,7 @@ These bounds match the classic results for tree reductions (Θ(m) work, Θ(log m
 ## SPARC #1 — Concatenate then Deduplicate (no local pass)
 
 **Idea.**  
-Concatenate all lists $\(A_0, A_1, \dots, A_{m-1}\)$ into one long sequence $\(E\)$ (length $\(N = m \cdot n\)$).  
+Concatenate all lists $\(A_0, A_1, \dots, A_{m-1}\)$ into one long sequence $\(E\)$ (length $N = m \cdot n$).  
 Then scan left to right; for each element $\(x\)$ in $\(E\)$, keep it in the output list $\(S\)$ **iff** it does **not** already appear in the prefix of $\(S\)$.  
 We implement membership check `rsearch(S, x)` by a tree-based reduction:  
 $$\text{rsearch}(S, x) = \mathrm{REDUCE \_OR}\bigl(\mathrm{MAP}(\lambda y. y = x, S)\bigr)$$
