@@ -45,6 +45,25 @@ Thus, with `ureduce`, the **work remains $\(\Theta(n)\)$**, and the **span is st
 
 - **2a.**
 
+Work–Span Proof for DEDUP_SEQ_BY_REDUCE
+
+Setup. At step k (1 ≤ k ≤ n), the seen-list S has size k−1. The algorithm computes B = map(y -> (y == x), S) and then performs a parallel tree reduce with OR and identity False to obtain found.
+
+Fact 1 (cost of a size-m parallel reduce). A balanced tree reduce with an associative operator and identity does Θ(m) work and Θ(log m) span. This is the standard bound for parallel reduce/“fold” and follows from the depth of the reduction tree. 
+
+Per-step costs. At step k, building B does Θ(k) work, and reducing B does Θ(k) work and Θ(log k) span. Hence the step-k membership check has
+$$W_k = \Theta(k),\quad S_k = \Theta(\log k).$$
+
+Total work. Summing over k gives
+$$W(n) = \sum_{k=1}^{n} W_k = \sum_{k=1}^{n} \Theta(k) = \Theta\!\left(\sum_{k=1}^{n} k\right) = \Theta(n^2).$$
+
+Total span. The outer loop is sequential (each decision depends on all prior steps), so spans add:
+$$S(n) = \sum_{k=1}^{n} S_k = \sum_{k=1}^{n} \Theta(\log k) = \Theta\!\big(\log(n!)\big) = \Theta(n \log n).$$
+The equality $\sum_{k=1}^{n} \log k = \log(n!)$ is immediate, and Stirling-type bounds give $\log(n!) = n \log n - n + O(\log n)$, hence $\log(n!) = \Theta(n \log n)$. :contentReference[oaicite:1]{index=1}
+
+Conclusion. Under the standard SPARC-style cost model for map/reduce, DEDUP_SEQ_BY_REDUCE has
+$$W(n) = \Theta(n^2),\quad S(n) = \Theta(n \log n).$$
+These bounds match the classic results for tree reductions (Θ(m) work, Θ(log m) span) applied to a sequential sequence of membership checks. :contentReference[oaicite:2]{index=2}
 
 
 
