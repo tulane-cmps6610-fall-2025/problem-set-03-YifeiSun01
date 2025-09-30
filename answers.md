@@ -219,7 +219,19 @@ $$S(n)=S_{\text{map}}(n)+S_{\text{scan}}(n)+S_{\text{red}}(n)=\Theta(\log n).$$
 
 - **3f.**
 
+### Work
+We have the recurrence
+$$W(1) = Θ(1),\quad W(n) = 2\,W\bigl(n/2\bigr) + Θ(1).$$
+By the Master Theorem (case \(a = 2, b = 2, f(n)=Θ(1)\)), since \(f(n) = O(n^{\log_b a - ε}) = O(n^{1 - ε})\), we get
+$$W(n) = Θ(n).$$
 
+### Span
+We get the recurrence for span:
+$$S(1) = Θ(1),\quad S(n) = S(n/2) + Θ(1).$$
+Solving it yields
+$$S(n) = Θ(\log n).$$
+
+Thus, the divide-and-conquer solution runs with **work** \(Θ(n)\) and **span** \(Θ(\log n)\).
 
 
 - **4a.**
