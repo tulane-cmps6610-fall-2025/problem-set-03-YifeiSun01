@@ -151,8 +151,11 @@ def parens_match_scan(mylist):
     False
     
     """
-    ###TODO
-    ###
+    mylist = [paren_map(i) for i in mylist]
+    def f(x,y):
+        return x + y
+    list_1, sum_1 = scan(f, 0, mylist)
+    return reduce(min_f, 0, list_1) >= 0 and sum_1 == 0
 
 def scan(f, id_, a):
     """
