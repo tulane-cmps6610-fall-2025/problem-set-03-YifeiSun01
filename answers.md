@@ -189,6 +189,31 @@ The iterative parenthesis matcher using `iterate` has **work** $\Theta(n)$ and *
 - **3d.**
 
 
+## Work / Span Proof for the scan-based parens matcher (map → scan → reduce)
+
+Assume parallel `map` and the work-efficient `scan` with contraction. Let input size be $n$.
+
+### Map phase
+Each of the $n$ items is mapped independently with $O(1)$ work.
+$$W_{\text{map}}(n)=\Theta(n),\quad S_{\text{map}}(n)=\Theta(1).$$
+
+### Scan phase (work-efficient up-sweep/down-sweep with contraction)
+The work satisfies the recurrence $$W_{\text{scan}}(1)=\Theta(1),\quad W_{\text{scan}}(n)=W_{\text{scan}}(n/2)+\Theta(n),$$
+so $$W_{\text{scan}}(n)=\Theta(n).$$
+The span satisfies $$S_{\text{scan}}(1)=\Theta(1),\quad S_{\text{scan}}(n)=S_{\text{scan}}(n/2)+\Theta(1),$$
+so $$S_{\text{scan}}(n)=\Theta(\log n).$$
+
+### Reduce phase (tree reduction to min over prefix sums)
+Balanced associative reduction over $n$ items has linear work and logarithmic span:
+$$W_{\text{red}}(1)=\Theta(1),\quad W_{\text{red}}(n)=W_{\text{red}}(n/2)+\Theta(n)\;\Rightarrow\;W_{\text{red}}(n)=\Theta(n),$$
+$$S_{\text{red}}(1)=\Theta(1),\quad S_{\text{red}}(n)=S_{\text{red}}(n/2)+\Theta(1)\;\Rightarrow\;S_{\text{red}}(n)=\Theta(\log n).$$
+
+### Whole algorithm (sequential composition of phases)
+Add the per-phase costs:
+$$W(n)=W_{\text{map}}(n)+W_{\text{scan}}(n)+W_{\text{red}}(n)=\Theta(n),$$
+$$S(n)=S_{\text{map}}(n)+S_{\text{scan}}(n)+S_{\text{red}}(n)=\Theta(\log n).$$
+
+**Conclusion.** The scan-based solution achieves work $\Theta(n)$ and span $\Theta(\log n)$.
 
 
 
