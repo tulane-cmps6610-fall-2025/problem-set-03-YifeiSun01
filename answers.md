@@ -205,8 +205,8 @@ so $$S_{\text{scan}}(n)=\Theta(\log n).$$
 
 ### Reduce phase (tree reduction to min over prefix sums)
 Balanced associative reduction over $n$ items has linear work and logarithmic span:
-$$W_{\text{red}}(1)=\Theta(1),\quad W_{\text{red}}(n)=W_{\text{red}}(n/2)+\Theta(n)\;\Rightarrow\;W_{\text{red}}(n)=\Theta(n),$$
-$$S_{\text{red}}(1)=\Theta(1),\quad S_{\text{red}}(n)=S_{\text{red}}(n/2)+\Theta(1)\;\Rightarrow\;S_{\text{red}}(n)=\Theta(\log n).$$
+$$W_{\text{red}}(1)=\Theta(1),\quad W_{\text{red}}(n)=W_{\text{red}}(n/2)+\Theta(n)\Rightarrow W_{\text{red}}(n)=\Theta(n),$$
+$$S_{\text{red}}(1)=\Theta(1),\quad S_{\text{red}}(n)=S_{\text{red}}(n/2)+\Theta(1)\Rightarrow S_{\text{red}}(n)=\Theta(\log n).$$
 
 ### Whole algorithm (sequential composition of phases)
 Add the per-phase costs:
